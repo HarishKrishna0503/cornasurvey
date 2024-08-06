@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Corona Virus Tracking</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-30px);
+            }
+            60% {
+                transform: translateY(-15px);
+            }
+        }
+
+        .bounce {
+            animation: bounce 10s infinite;
+        }
+        td{
+            background-color: aliceblue;
+            color: cadetblue;
+        }
+        tr:hover{
+            background-color: coral;
+        }
+        
+        </style>
+</head>
+<body>
+  <div class="container mt3 bg-danger text-white ">
+        <h2 class="bounce">CoronaVirustracking</h2>   
+
+    </div>
+    <div class="container mt3 bg-success text-white rounded">
+        <h1>this report tells you that until now admitted in corna ward accross the globe</h1>
+        <div class="jumbotron">
+         <h1 class="display-4" th:text="${totalDeathsReported}"></h1>
+         <p class="lead">Total cases reported as of Today</p>
+    </div>
+        <input id="myInput" type="text" placeholder="Search..">
+     </div>
+     <div class="container">
+        <div class="table">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                <th class="bg-info text-white">State</th>
+                <th class="bg-warning text-white">Country</th>
+                <th class="bg-dark text-white">total death reports</th>
+                <th class="bg-danger text-warning">totalcases till lastdays</th>
+            </tr>
+            </thead>
+            <tbody id="myTable">
+            <tr th:each="locationstate : ${LocationStates}">
+                <td th:text="${locationstate.state}"></td>
+                <td th:text="${locationstate.country}"></td>
+                <td th:text="${locationstate.latestTotalDeaths}">0</td>
+                <td th:text="${locationstate.differFromPrevay}">0</td>
+            </tr>
+            </tbody>
+        </table>    
+         </div>
+     </div>
+      <footer class="bg-dark text-white pt-5 pb-4">
+         <div class="container text-center text-md-left">
+         
+            <div class="row text-center text-md-left">
+
+                 <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                    <h5 class="text-uppercase mb-4 font-weight-bold text-warning">CompanyName</h5>
+                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, quam! Nulla voluptate doloremque similique facilis voluptatem laudantium amet corporis, ex nisi dolor ipsum nam, quo quaerat saepe dolores perspiciatis quod.
+
+                     </p>
+                </div>
+                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                     <p class="text-uppercase mb-4 font-weight-bold text-warning">Products</p>
+                     <p>
+                        <a href="#" class="text-white" style="text-decoration: none;">JavaFullStack</a>
+                     </p>
+                     <p>
+                        <a href="#" class="text-white" style="text-decoration: none;">Digital Marketing</a>
+                     </p>
+                     <p>
+                        <a href="#" class="text-white" style="text-decoration: none;">phpFullStack</a>
+                     </p>
+                     <p>
+                        <a href="#" class="text-white" style="text-decoration: none;">PythonFullStack</a>
+                     </p>
+                </div>
+                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+                    <h5 class="text-uppercase mb-4 font-weight-bold text-warning">Useful links</h5>
+                        <p>
+                            <a href="#" class="text-white" style="text-decoration: none;">Your Account</a>
+                         </p>
+                         <p>
+                            <a href="#" class="text-white" style="text-decoration: none;">make your dream come true</a>
+                         </p>
+                         <p>
+                            <a href="#" class="text-white" style="text-decoration: none;">Become an Developer</a>
+                         </p>
+                         <p>
+                            <a href="#" class="text-white" style="text-decoration: none;">Give The Best</a>
+                         </p>
+                        </div>
+                        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+                            <h5 class="text-uppercase mb-4 font-weight-bold text-warning">contact us</h5>
+                            <p>
+                               <i class="fas fa-home mr-3">madurai &&Nagercoil</i>
+                             </p>
+                             <p>
+                                <i class="fa-solid fa-envelope">hk@gmail.com</i>
+                             <p>
+                                <i class="fas fa-phone mr-3">+91 965784321</i>                             
+                             </p>
+                             <p>
+                               <i class="fas fa-print mr-3">+01 335 633 77</i>
+                             </p>
+                        </div>
+                        <hr class="mb-4">
+                        <div class="col-md-5 col-lg-4">follow us on                      
+                         <div class="text-center text-md-right">
+                         <ul class="list-unstyled list-inline">
+                            <li class="list-inline-item">
+                                <a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"><i class="fab fa-facebook"></i></a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"><i class="fab fa-twitter"></i></a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"><i class="fab fa-instagram"></i></a>
+                            </li>
+
+                         
+                            <li class="list-inline-item">
+                                <a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"><i class="fab fa-github"></i></a>
+                            </li>
+                        </ul>
+                        </div>
+                    </div>
+                    </div>
+         </div>
+     
+
+     </footer>
+     <script>
+     $(document).ready(function(){
+    	  $("#myInput").on("keyup", function() {
+    	    var value = $(this).val().toLowerCase();
+    	    $("#myTable tr").filter(function() {
+    	      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    	    });
+    	  });
+    	});
+     </script>
+</body>
+</html>
